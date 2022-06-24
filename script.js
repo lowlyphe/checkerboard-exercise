@@ -1,7 +1,7 @@
 // Your JS goes here
 function createCheckerboard(num) {
   var row = 1;
-  let dimensions = 95 / num + "%";
+  let dimensions = 98 / num + "%";
   console.log(dimensions);
   for (let i = 0; i < num; i++) {
     for (let j = 0; j < num; j++) {
