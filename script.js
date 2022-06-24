@@ -1,37 +1,43 @@
 // Your JS goes here
-var row = 1;
-for (let i = 0; i < 8; i++) {
-  for (let j = 0; j < 8; j++) {
-    if (row % 2 === 0) {
-      if (j % 2 === 0) {
-        styleBLack();
+function createCheckerboard(num) {
+  var row = 1;
+  let dimensions = 95 / num + "%";
+  console.log(dimensions);
+  for (let i = 0; i < num; i++) {
+    for (let j = 0; j < num; j++) {
+      if (row % 2 === 0) {
+        if (j % 2 === 0) {
+          styleBLack(dimensions);
+        } else {
+          styleRed(dimensions);
+        }
       } else {
-        styleRed();
-      }
-    } else {
-      if (j % 2 === 0) {
-        styleRed();
-      } else {
-        styleBLack();
+        if (j % 2 === 0) {
+          styleRed(dimensions);
+        } else {
+          styleBLack(dimensions);
+        }
       }
     }
+    row++;
   }
-  row++;
 }
 
-function styleBLack() {
+function styleBLack(dimensions) {
   let div = document.createElement("div");
-  div.style.width = "12%";
-  div.style.paddingBottom = "12%";
+  div.style.width = dimensions;
+  div.style.paddingBottom = dimensions;
   div.style.backgroundColor = "black";
   div.style.float = "left";
   document.body.append(div);
 }
-function styleRed() {
+function styleRed(dimensions) {
   let div = document.createElement("div");
-  div.style.width = "12%";
-  div.style.paddingBottom = "12%";
+  div.style.width = dimensions;
+  div.style.paddingBottom = dimensions;
   div.style.backgroundColor = "red";
   div.style.float = "left";
   document.body.append(div);
 }
+
+createCheckerboard(5);
